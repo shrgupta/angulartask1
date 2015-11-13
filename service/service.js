@@ -1,3 +1,6 @@
+
+(function() {
+    'use strict';
 var myapp = angular.module('myServices', []);
 myapp.factory('myfact', function() {
     var factory = {};
@@ -14,3 +17,4 @@ myapp.factory('myfact', function() {
     };
     return factory;
 });
+})();

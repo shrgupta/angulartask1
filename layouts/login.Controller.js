@@ -1,4 +1,5 @@
-
+(function() {
+    'use strict';
 myapp.controller('LoginCtrl', ['$scope', '$http', '$localStorage', 'myfact', function($scope, $http, $localStorage, myfact) {
 
 
@@ -8,7 +9,7 @@ myapp.controller('LoginCtrl', ['$scope', '$http', '$localStorage', 'myfact', fun
 
             $http({
                 method: 'POST',
-                url: 'login.php',
+                url: 'server/login.php',
                 headers: myfact.getHeader(),
                 transformRequest: myfact.getTransformRequest(),
                 data: {email: $scope.email, pass: $scope.pass},
@@ -41,6 +42,7 @@ myapp.controller('LoginCtrl', ['$scope', '$http', '$localStorage', 'myfact', fun
 
         };
     }]);
+})();
 //myapp.controller('RegistrationCtrl', function($scope, $http,myfact) {
 //
 //

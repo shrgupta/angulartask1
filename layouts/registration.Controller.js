@@ -1,4 +1,5 @@
-
+(function() {
+    'use strict';
  myapp.controller('RegistrationCtrl', function($scope, $http,myfact) {
 
 
@@ -8,7 +9,7 @@
 // Posting data to php file
         $http({
             method: 'POST',
-            url: 'registration.php',
+            url: 'server/registration.php',
             headers: myfact.getHeader(),
             transformRequest:  myfact.getTransformRequest(),
             data: {user: $scope.user, email: $scope.email, pass: $scope.pass, cpass: $scope.cpass},
@@ -29,3 +30,4 @@
 
 
 });
+})();

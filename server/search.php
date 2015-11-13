@@ -16,8 +16,8 @@ if (!$conn) {
 
 
 
-   // $low = $_POST['low'];
-   // $high	=$_POST['high'];
+    $low = $_POST['first'];
+   $high	=$_POST['second'];
 
 
 
@@ -25,7 +25,7 @@ if (!$conn) {
 //'%keyword1%') AND (Column1 LIKE '%keyword2%' OR Column2 LIKE '%keyword2%');
 // SELECT ID FROM T WHERE ? BETWEEN MN AND MX ORDER BY MN LIMIT 1 
   
-$query = "SELECT * FROM product_mobile WHERE  price BETWEEN 0 AND 2000";
+$query = "SELECT * FROM product_mobile WHERE  price BETWEEN $low AND $high";
 
 // $query = "SELECT * FROM product_mobile WHERE ( Product_name  LIKE '%" . $key . "%'  OR brand LIKE '%" . $key . "%' OR price LIKE '%" . $key . "%' OR type LIKE '%" . $key . "%')";
 

@@ -65,19 +65,19 @@
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query" ng-change="change(2000,3000)" >Rs 2000 - Rs 3000 
+      <input type="checkbox"  ng-model="query2" ng-change="change(2000,3000)" >Rs 2000 - Rs 3000 
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query" ng-change="change(3000,4000)" >Rs 3000 - Rs 4000
+      <input type="checkbox"  ng-model="query3" ng-change="change(3000,4000)" >Rs 3000 - Rs 4000
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query" ng-change="change(4000,6000)" >Rs 4000 and Above 
+      <input type="checkbox"  ng-model="query4" ng-change="change(4000,6000)" >Rs 4000 and Above 
     </label>
   </div></br>
 
@@ -145,7 +145,7 @@
 
                 <div class="row">
                    
-                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="user in data  ">
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="user in data ">
                         <div class="thumbnail">
                             <img src={{user.image}} alt="comming soon" ng-model='image' style="
                              width: 80px;"/>
