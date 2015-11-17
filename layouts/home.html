@@ -59,25 +59,25 @@
 <label>Price</label>
 <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query" ng-change=setValue(0,2000) ng-repeat="i in getNumber(myNumber) track by $index" >Rs 2000 and Below 
+      <input type="checkbox"  ng-model="query" ng-change=setValue(0,2000)  >Rs 2000 and Below 
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query2" ng-change=setValue(2000,3000) ng-repeat="i in getNumber(myNumber) track by $index ">Rs 2000 - Rs 3000 
+      <input type="checkbox"  ng-model="query2" ng-change=setValue(2000,3000,0) >Rs 2000 - Rs 3000 
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query3" ng-change=setValue(3000,4000) ng-repeat="i in getNumber(myNumber) track by $index ">Rs 3000 - Rs 4000
+      <input type="checkbox"  ng-model="query3" ng-change=setValue(3000,4000) >Rs 3000 - Rs 4000
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query4" ng-change=setValue(4000,6000) ng-repeat="i in getNumber(myNumber) track by $index ">Rs 4000 and Above 
+      <input type="checkbox"  ng-model="query4" ng-change=setValue(4000,6000) >Rs 4000 and Above 
     </label>
   </div></br>
 

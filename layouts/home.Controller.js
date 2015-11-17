@@ -143,6 +143,21 @@ $scope.find = function(brand) {
         });
     };
 
+      $scope.orderby = function(index) {
+        //alert(index);
+        $http({
+            method: 'POST',
+            url: 'server/search.php',
+            headers: myfact.getHeader(),
+            transformRequest: myfact.getTransformRequest(),
+            data: {page_position: index}
+        }).success(function(data) {
+
+            $scope.data = data;
+
+
+        });
+    };
 
 
 
