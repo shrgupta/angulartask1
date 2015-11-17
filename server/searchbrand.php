@@ -12,20 +12,14 @@ if (!$conn) {
     die('Could not connect: ' . mysql_error());
 }
  
+    $key = $_POST['Brand'];
+  // $key="Micromax";
 
 
 
-
-    $low = $_POST['low'];
-   $high= $_POST['high'];
-// echo $low;
-
-
-//SELECT * FROM MyTable WHERE (Column1 LIKE '%keyword1%' OR Column2 LIKE 
-//'%keyword1%') AND (Column1 LIKE '%keyword2%' OR Column2 LIKE '%keyword2%');
 // SELECT ID FROM T WHERE ? BETWEEN MN AND MX ORDER BY MN LIMIT 1 
-  
-$query = "SELECT * FROM product_mobile WHERE  price BETWEEN $low AND $high";
+// $query = "SELECT * FROM product_mobile WHERE  brand  LIKE '%Micromax%' ";  
+$query = "SELECT * FROM product_mobile WHERE  brand  LIKE '%".$key."%' ";
 
 // $query = "SELECT * FROM product_mobile WHERE ( Product_name  LIKE '%" . $key . "%'  OR brand LIKE '%" . $key . "%' OR price LIKE '%" . $key . "%' OR type LIKE '%" . $key . "%')";
 
@@ -37,7 +31,6 @@ $query = "SELECT * FROM product_mobile WHERE  price BETWEEN $low AND $high";
     
   
 }
-
 echo json_encode($output);
    
 

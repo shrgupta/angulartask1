@@ -59,25 +59,25 @@
 <label>Price</label>
 <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query" ng-change="change(0,2000)" >Rs 2000 and Below 
+      <input type="checkbox"  ng-model="query" ng-change=setValue(0,2000) ng-repeat="i in getNumber(myNumber) track by $index" >Rs 2000 and Below 
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query2" ng-change="change(2000,3000)" >Rs 2000 - Rs 3000 
+      <input type="checkbox"  ng-model="query2" ng-change=setValue(2000,3000) ng-repeat="i in getNumber(myNumber) track by $index ">Rs 2000 - Rs 3000 
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query3" ng-change="change(3000,4000)" >Rs 3000 - Rs 4000
+      <input type="checkbox"  ng-model="query3" ng-change=setValue(3000,4000) ng-repeat="i in getNumber(myNumber) track by $index ">Rs 3000 - Rs 4000
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query4" ng-change="change(4000,6000)" >Rs 4000 and Above 
+      <input type="checkbox"  ng-model="query4" ng-change=setValue(4000,6000) ng-repeat="i in getNumber(myNumber) track by $index ">Rs 4000 and Above 
     </label>
   </div></br>
 
@@ -86,22 +86,35 @@
 
  <div class="checkbox">
     <label>
-      <input type="checkbox" >Micromax 
+      <input type="checkbox" ng-model="brand1" ng-change=find("Micromax")>Micromax 
     </label>
   </div>
  
 <div class="checkbox">
     <label>
-      <input type="checkbox">Sony 
+      <input type="checkbox" ng-model="brand2" ng-change=find("karbon")>Karbon 
     </label>
   </div>
  
 <div class="checkbox">
     <label>
-      <input type="checkbox">Lenovo 
+      <input type="checkbox" ng-model="brand3" ng-change=find("Bsnl")>Bsnl 
     </label>
+  </div></br></br>
+<label>Sort By</label>
+  <div class="checkbox">
+    <label>
+     <input type="checkbox" ng-model="high" ng-change=sorthigh()>High Price 
+    </label>
+    
   </div>
 
+<div class="checkbox">
+    <label>
+      <input type="checkbox" ng-model="low" ng-change=sortlow()>Low Price 
+    </label>
+     
+  </div>
 
 
 
@@ -145,17 +158,17 @@
 
                 <div class="row">
                    
-                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="user in data ">
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="user in data.data1 |orderBy:sortKey:reverse | limitTo:5 track by $index">
                         <div class="thumbnail">
                             <img src={{user.image}} alt="comming soon" ng-model='image' style="
-                             width: 80px;"/>
+                             width: 90px;"/>
                             <div class="caption">
                                 <h5 class="pull-right" ng-model='price'>Price:{{user.price}}</h5>
                                 <h5><label ng-model='product'>{{user.Product_name}}</label>
                                 </h5>
                                 <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
                             </div>
-                            <!-- <div class="ratings">
+                            <div class="ratings">
                                 <p class="pull-right">15 reviews</p>
                                 <p>
                                     <span class="glyphicon glyphicon-star"></span>
@@ -164,10 +177,12 @@
                                     <span class="glyphicon glyphicon-star"></span>
                                     <span class="glyphicon glyphicon-star"></span>
                                 </p>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
-
+                                     <ul class="pagination">
+                                        <li ng-repeat="i in getNumber(myNumber) track by $index"><a href="#" ng-click=orderby($index) >{{$index + 1}}</a></li>
+                                    </ul>
                     
 
                 </div>
