@@ -10,7 +10,7 @@ myapp.config(function($stateProvider, $urlRouterProvider) {
 
             .state('/home', {
                 url: "/home",
-                templateUrl: "layouts/home.html",
+                templateUrl: "layouts/home.php",
                controller: "HomeCtrl"
             })
             .state('/registration', {

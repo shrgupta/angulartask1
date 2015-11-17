@@ -26,35 +26,36 @@ myapp.controller('HomeCtrl', function($scope,$http,myfact) {
 
 
        
-$scope.setValue = function() {
+$scope.setValue = function(first,second) {
        // alert(second);
       
         $http({
         method  : 'POST',
                 url     : 'server/search.php',
                 
+                 data    :  {low:first,high:second},
  
                 headers: myfact.getHeader(),
                 transformRequest: myfact.getTransformRequest()
                 })
                 .success(function(data) {
                   
-                  if(data)
-                  {
-                   location.href = "#/view"; 
-                  } 
+                  // if(data)
+                  // {
+                  //  location.href = "#/view"; 
+                  // } 
                 //alert("success");
                
-               //  $scope.data=data;
-               //  var pag = parseInt(data.num_rows);
-               // // alert(pag);
-               //  //alert(data.length);
+                $scope.data=data;
+                var pag = parseInt(data.num_rows);
+               // alert(pag);
+                //alert(data.length);
 
-               //  $scope.myNumber = pag;
+                $scope.myNumber = pag;
 
-               //  $scope.getNumber = function(num) {
-               //      return new Array(num);
-               //  };
+                $scope.getNumber = function(num) {
+                    return new Array(num);
+                };
 
                 });
         };
@@ -162,21 +163,21 @@ $scope.find = function(brand) {
         });
     };
 
-    //   $scope.orderby = function(index) {
-    //     //alert(index);
-    //     $http({
-    //         method: 'POST',
-    //         url: 'server/search.php',
-    //         headers: myfact.getHeader(),
-    //         transformRequest: myfact.getTransformRequest(),
-    //         data: {page_position: index}
-    //     }).success(function(data) {
+      $scope.set = function(index) {
+        //alert(index);
+        $http({
+            method: 'POST',
+            url: 'server/search.php',
+            headers: myfact.getHeader(),
+            transformRequest: myfact.getTransformRequest(),
+            data: {page_position: index}
+        }).success(function(data) {
 
-    //         $scope.data = data;
+            $scope.data = data;
 
 
-    //     });
-    // };
+        });
+    };
 
     $scope.ordeby = function(index) {
         //alert(index);
