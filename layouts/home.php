@@ -59,7 +59,7 @@
 <label>Price</label>
 <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query" ng-change=setValue()  >Rs 2000 and Below 
+      <input type="checkbox"  ng-model="query" ng-change=setValue(0,2000)  >Rs 2000 and Below 
     </label>
   </div>
 

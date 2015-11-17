@@ -1,21 +1,6 @@
 myapp.controller('HomeCtrl', function($scope,$http,myfact) {
 
-	// $http.get("server/show.php").success(function(data) {
-                
-	// 			//alert(data.6);
- //                $scope.data = data;
- //                //alert(data.length);
- //             // var pag = parseInt(data.num_row);
- //             //      //alert(pag);
- //             //    //alert(typeof pag);
-
- //             //    $scope.myNumber = pag;
- //             //    $scope.getNumber = function(num) {
- //             //        return new Array(num);
- //             //    };
-                
-
- //                });
+	
 
    $http.get("server/row.php").success(function(data) {
                 
@@ -41,31 +26,35 @@ myapp.controller('HomeCtrl', function($scope,$http,myfact) {
 
 
        
-$scope.setValue = function(first,second) {
+$scope.setValue = function() {
        // alert(second);
       
         $http({
         method  : 'POST',
                 url     : 'server/search.php',
-                data    :  {low:first,high:second},
+                
  
                 headers: myfact.getHeader(),
                 transformRequest: myfact.getTransformRequest()
                 })
                 .success(function(data) {
-
-
+                  
+                  if(data)
+                  {
+                   location.href = "#/view"; 
+                  } 
                 //alert("success");
-                $scope.data=data;
-                var pag = parseInt(data.num_rows);
-               // alert(pag);
-                //alert(data.length);
+               
+               //  $scope.data=data;
+               //  var pag = parseInt(data.num_rows);
+               // // alert(pag);
+               //  //alert(data.length);
 
-                $scope.myNumber = pag;
+               //  $scope.myNumber = pag;
 
-                $scope.getNumber = function(num) {
-                    return new Array(num);
-                };
+               //  $scope.getNumber = function(num) {
+               //      return new Array(num);
+               //  };
 
                 });
         };
@@ -86,6 +75,16 @@ $scope.find = function(brand) {
 
                 //alert("success");
                 $scope.data=data;
+                var pag = parseInt(data.num_rows);
+               //alert(pag);
+                //alert(data.length);
+
+                $scope.myNumber = pag;
+
+                $scope.getNumber = function(num) {
+                    return new Array(num);
+                };
+
 
                 });
         };
@@ -107,6 +106,16 @@ $scope.find = function(brand) {
                 //alert("success");
                 $scope.data=data;
 
+                var pag = parseInt(data.num_rows);
+               //alert(pag);
+                //alert(data.length);
+
+                $scope.myNumber = pag;
+
+                $scope.getNumber = function(num) {
+                    return new Array(num);
+                };
+
                 });
     };
 
@@ -124,6 +133,16 @@ $scope.find = function(brand) {
 
                 //alert("success");
                 $scope.data=data;
+                var pag = parseInt(data.num_rows);
+               //alert(pag);
+                //alert(data.length);
+
+                $scope.myNumber = pag;
+
+                $scope.getNumber = function(num) {
+                    return new Array(num);
+                };
+
 
                 });
     };
@@ -143,11 +162,42 @@ $scope.find = function(brand) {
         });
     };
 
-      $scope.orderby = function(index) {
+    //   $scope.orderby = function(index) {
+    //     //alert(index);
+    //     $http({
+    //         method: 'POST',
+    //         url: 'server/search.php',
+    //         headers: myfact.getHeader(),
+    //         transformRequest: myfact.getTransformRequest(),
+    //         data: {page_position: index}
+    //     }).success(function(data) {
+
+    //         $scope.data = data;
+
+
+    //     });
+    // };
+
+    $scope.ordeby = function(index) {
         //alert(index);
         $http({
             method: 'POST',
-            url: 'server/search.php',
+            url: 'server/sortasc.php',
+            headers: myfact.getHeader(),
+            transformRequest: myfact.getTransformRequest(),
+            data: {page_position: index}
+        }).success(function(data) {
+
+            $scope.data = data;
+
+
+        });
+    };
+   $scope.orderby = function(index) {
+        //alert(index);
+        $http({
+            method: 'POST',
+            url: 'server/searchbrand.php',
             headers: myfact.getHeader(),
             transformRequest: myfact.getTransformRequest(),
             data: {page_position: index}
@@ -159,7 +209,21 @@ $scope.find = function(brand) {
         });
     };
 
+  $scope.orderby = function(index) {
+        alert(index);
+        $http({
+            method: 'POST',
+            url: 'server/sortdsc.php',
+            headers: myfact.getHeader(),
+            transformRequest: myfact.getTransformRequest(),
+            data: {page_position: index}
+        }).success(function(data) {
 
+            $scope.data = data;
+
+
+        });
+    };
 
 
 

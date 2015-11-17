@@ -2,6 +2,12 @@ var myapp = angular.module('app', ['ui.router','myServices']);
 myapp.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/home");
     $stateProvider
+            .state('/view', {
+                url: "/view",
+                templateUrl: "layouts/view.html",
+                controller: "ViewCtrl"
+            })
+
             .state('/home', {
                 url: "/home",
                 templateUrl: "layouts/home.html",
@@ -12,6 +18,9 @@ myapp.config(function($stateProvider, $urlRouterProvider) {
                 templateUrl: "layouts/registration.html",
                 controller: "RegistrationCtrl"
             })
+            
+
+
             .state('/login', {
                 url: "/login",
                 templateUrl: "layouts/login.html",
