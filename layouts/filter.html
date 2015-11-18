@@ -59,25 +59,25 @@
 <label>Price</label>
 <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query" ng-change=setValue()  >Rs 2000 and Below 
+      <input type="checkbox"  ng-model="query" ng-click=setValue()  >Rs 2000 and Below 
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query2" ng-change=filterValue() >Rs 2000 - Rs 3000 
+      <input type="checkbox"  ng-model="query2" ng-click=filterValue() >Rs 2000 - Rs 3000 
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query3" ng-click=filterPage() >Rs 3000 - Rs 4000
+      <input type="checkbox"  ng-model="query3" ng-change=setValue(3000,4000) >Rs 3000 - Rs 4000
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query4" ng-change=filterLast() >Rs 4000 and Above 
+      <input type="checkbox"  ng-model="query4" ng-change=setValue(4000,6000) >Rs 4000 and Above 
     </label>
   </div></br>
 

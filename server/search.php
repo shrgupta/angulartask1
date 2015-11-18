@@ -13,7 +13,10 @@ if (!$conn) {
 }
  if (isset($_POST['page_position'])){
         $page_position = $_POST['page_position'];
-  } 
+        //$page_position=1;
+        ///echo $page_position;
+      
+ } 
   else {
         $page_position = 0;
   }
@@ -24,8 +27,9 @@ if (!$conn) {
 
 
 
-    $low = $_POST['low'];
-   $high= $_POST['high'];
+    $low = $_REQUEST['low'];
+   $high= $_REQUEST['high'];
+  
    
    $result1 = mysql_query("SELECT * FROM product_mobile WHERE  price BETWEEN $low AND $high",$conn );
 $num_rows = mysql_num_rows($result1);

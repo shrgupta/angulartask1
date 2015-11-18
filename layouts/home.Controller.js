@@ -1,13 +1,9 @@
 myapp.controller('HomeCtrl', function($scope,$http,myfact) {
-
-	
-
-   $http.get("server/row.php").success(function(data) {
+$http.get("server/row.php").success(function(data) {
                 
                 //alert(data.6);
                 $scope.data = data;
-                //alert(data.num_row);
-                //alert(data);
+                
              var pag = parseInt(data.num_rows);
                // alert(pag);
                 //alert(data.length);
@@ -26,68 +22,23 @@ myapp.controller('HomeCtrl', function($scope,$http,myfact) {
 
 
        
-$scope.setValue = function(first,second) {
-       // alert(second);
-      
-        $http({
-        method  : 'POST',
-                url     : 'server/search.php',
-                
-                 data    :  {low:first,high:second},
- 
-                headers: myfact.getHeader(),
-                transformRequest: myfact.getTransformRequest()
-                })
-                .success(function(data) {
-                  
-                  // if(data)
-                  // {
-                  //  location.href = "#/view"; 
-                  // } 
-                //alert("success");
-               
-                $scope.data=data;
-                var pag = parseInt(data.num_rows);
-               // alert(pag);
-                //alert(data.length);
+$scope.setValue = function() {
+location.href = "#/view";
+};
 
-                $scope.myNumber = pag;
-
-                $scope.getNumber = function(num) {
-                    return new Array(num);
-                };
-
-                });
-        };
+$scope.filterValue = function() {
+location.href = "#/filter";
+};
+$scope.filterPage = function() {
+location.href = "#/filterPage";
+};
+$scope.filterLast = function() {
+location.href = "#/filterLast";
+};
 
 
-$scope.find = function(brand) {
-        alert(brand);
-        $http({
-        method  : 'POST',
-                url     : 'server/searchbrand.php',
-                data    :  {Brand:brand},
-//forms user 
-                headers: myfact.getHeader(),
-                transformRequest: myfact.getTransformRequest()
-                })
-                .success(function(data) {
-
-
-                //alert("success");
-                $scope.data=data;
-                var pag = parseInt(data.num_rows);
-               //alert(pag);
-                //alert(data.length);
-
-                $scope.myNumber = pag;
-
-                $scope.getNumber = function(num) {
-                    return new Array(num);
-                };
-
-
-                });
+$scope.micromax = function() {
+        location.href = "#/micromax";
         };
 
 
@@ -163,68 +114,68 @@ $scope.find = function(brand) {
         });
     };
 
-      $scope.set = function(index) {
-        //alert(index);
-        $http({
-            method: 'POST',
-            url: 'server/search.php',
-            headers: myfact.getHeader(),
-            transformRequest: myfact.getTransformRequest(),
-            data: {page_position: index}
-        }).success(function(data) {
-
-            $scope.data = data;
-
-
-        });
-    };
-
-    $scope.ordeby = function(index) {
-        //alert(index);
-        $http({
-            method: 'POST',
-            url: 'server/sortasc.php',
-            headers: myfact.getHeader(),
-            transformRequest: myfact.getTransformRequest(),
-            data: {page_position: index}
-        }).success(function(data) {
-
-            $scope.data = data;
+    //   $scope.orderby = function(index) {
+    //     alert(index);
+    //     $http({
+    //         method: 'POST',
+    //         url: 'server/search.php',
+    //         headers: myfact.getHeader(),
+    //         transformRequest: myfact.getTransformRequest(),
+    //         data: {page_position: index}
+    //     }).success(function(data) {
+    //           //alert(data);
+    //         $scope.data = data;
 
 
-        });
-    };
-   $scope.orderby = function(index) {
-        //alert(index);
-        $http({
-            method: 'POST',
-            url: 'server/searchbrand.php',
-            headers: myfact.getHeader(),
-            transformRequest: myfact.getTransformRequest(),
-            data: {page_position: index}
-        }).success(function(data) {
+    //     });
+    // };
 
-            $scope.data = data;
+    // $scope.ordeby = function(index) {
+    //     //alert(index);
+    //     $http({
+    //         method: 'POST',
+    //         url: 'server/sortasc.php',
+    //         headers: myfact.getHeader(),
+    //         transformRequest: myfact.getTransformRequest(),
+    //         data: {page_position: index}
+    //     }).success(function(data) {
 
-
-        });
-    };
-
-  $scope.orderby = function(index) {
-        alert(index);
-        $http({
-            method: 'POST',
-            url: 'server/sortdsc.php',
-            headers: myfact.getHeader(),
-            transformRequest: myfact.getTransformRequest(),
-            data: {page_position: index}
-        }).success(function(data) {
-
-            $scope.data = data;
+    //         $scope.data = data;
 
 
-        });
-    };
+    //     });
+    // };
+   // $scope.orderby = function(index) {
+   //      //alert(index);
+   //      $http({
+   //          method: 'POST',
+   //          url: 'server/searchbrand.php',
+   //          headers: myfact.getHeader(),
+   //          transformRequest: myfact.getTransformRequest(),
+   //          data: {page_position: index}
+   //      }).success(function(data) {
+
+   //          $scope.data = data;
+
+
+   //      });
+   //  };
+
+  // $scope.orderby = function(index) {
+  //       alert(index);
+  //       $http({
+  //           method: 'POST',
+  //           url: 'server/sortdsc.php',
+  //           headers: myfact.getHeader(),
+  //           transformRequest: myfact.getTransformRequest(),
+  //           data: {page_position: index}
+  //       }).success(function(data) {
+
+  //           $scope.data = data;
+
+
+  //       });
+  //   };
 
 
 
