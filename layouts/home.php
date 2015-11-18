@@ -181,10 +181,10 @@
                         </div>
                     </div>            
                                      
-                                     <!-- <ul class="pagination">
+                                     <ul class="pagination">
                                         <li ng-repeat="i in getNumber(myNumber) track by $index">
                                           <a href="#" ng-click=orderby($index) >{{$index + 1}}</a></li> 
-                                    </ul> -->
+                                    </ul>
                                    <?php if(ng-change==setValue(0,2000))
                                     {?>
                                     <ul class="pagination">
