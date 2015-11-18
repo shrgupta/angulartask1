@@ -1,11 +1,15 @@
-myapp.controller('FilterlastCtrl', function($scope,$http,myfact) {
-    $low=4000;
-    $high=6000;
+(function () {
+'use strict';
+
+angular.module('app').controller('FilterlastCtrl', FilterlastCtrl);
+  function FilterlastCtrl($scope,$http,myfact) {
+    $scope.low=4000;
+    $scope.high=6000;
 $http({
                method  : 'POST',
                 url     : 'server/search.php',
                 
-                 data   : {low:$low,high:$high},
+                 data   : {low:$scope.low,high:$scope.high},
  
                 headers: myfact.getHeader(),
                 transformRequest: myfact.getTransformRequest()
@@ -37,4 +41,5 @@ $http({
                  location.href = "#/micromax";
 };
 
-});
+};
+})();

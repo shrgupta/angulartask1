@@ -1,11 +1,16 @@
-myapp.controller('ViewCtrl', function($scope,$http,myfact) {
-    $low=0;
-    $high=2000;
+(function () {
+'use strict';
+
+angular.module('app').controller('ViewCtrl', ViewCtrl);
+  function ViewCtrl($scope,$http,myfact) {
+    $scope.low=0;
+    $scope.high=2000;
+
 $http({
                method  : 'POST',
                 url     : 'server/search.php',
                 
-                 data   : {low:$low,high:$high},
+                 data   : {low:$scope.low,high:$scope.high},
  
                 headers: myfact.getHeader(),
                 transformRequest: myfact.getTransformRequest()
@@ -32,32 +37,20 @@ $http({
 };
            $scope.micromax = function() {
                   location.href = "#/micromax";
+
 };
-// $scope.setValue = function(first,second) {
-//       $http({
-//         method  : 'POST',
-//                 url     : 'server/search.php',
-//                 data    :  {low:0,high:2000},
- 
-//                 headers: myfact.getHeader(),
-//                 transformRequest: myfact.getTransformRequest()
-//                 })
-//                 .success(function(data) {
+$scope.filterLast = function() {
+                  location.href = "#/filterLast";
+                  
+};
+$scope.low = function() {
+                  location.href = "#/low";
+                  
+};
+$scope.high = function() {
+                  location.href = "#/high";
+                  
+};
 
-
-//                 alert("success1");
-               
-//                 $scope.data=data;
-//                //  var pag = parseInt(data.num_rows);
-//                // // alert(pag);
-//                //  //alert(data.length);
-
-//                //  $scope.myNumber = pag;
-
-//                //  $scope.getNumber = function(num) {
-//                //      return new Array(num);
-//                //  };
-
-//                 });
-//         };
-});
+};
+})();

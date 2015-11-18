@@ -1,9 +1,9 @@
 (function () {
 'use strict';
 
-angular.module('app').controller('MicromaxCtrl',MicromaxCtrl);
- function MicromaxCtrl($scope,$http,myfact) {
-    $scope.brand="Micromax";
+angular.module('app').controller('KarbonCtrl', KarbonCtrl);
+  function KarbonCtrl($scope,$http,myfact) {
+    $scope.brand="karbon";
     
 $http({
         method  : 'POST',
@@ -43,11 +43,11 @@ $http({
                 
               $scope.filterLast = function() {
                  location.href = "#/filterLast";
+};             
+               $scope.micromax = function() {
+                 location.href = "#/micromax";
 };
-                 $scope.karbon = function() {
-                 location.href = "#/karbon";
-};
-                $scope.bsnl = function() {
+               $scope.bsnl = function() {
                  location.href = "#/bsnl";
 };
 

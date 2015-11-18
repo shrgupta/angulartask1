@@ -1,6 +1,8 @@
 (function() {
     'use strict';
-myapp.controller('LoginCtrl', ['$scope', '$http', '$localStorage', 'myfact', function($scope, $http, $localStorage, myfact) {
+    angular.module('app').controller('LoginCtrl',LoginCtrl);
+ function LoginCtrl($scope,$http,myfact) {
+
 
 
         $scope.submitForm = function() {
@@ -41,7 +43,7 @@ myapp.controller('LoginCtrl', ['$scope', '$http', '$localStorage', 'myfact', fun
 
 
         };
-    }]);
+    };
 })();
 //myapp.controller('RegistrationCtrl', function($scope, $http,myfact) {
 //

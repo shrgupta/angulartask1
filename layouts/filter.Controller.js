@@ -1,11 +1,15 @@
-myapp.controller('FilterCtrl', function($scope,$http,myfact) {
-    $low=2000;
-    $high=3000;
+(function () {
+'use strict';
+
+angular.module('app').controller('FilterCtrl',FilterCtrl); 
+  function FilterCtrl($scope,$http,myfact) {
+    $scope.low=2000;
+    $scope.high=3000;
 $http({
                method  : 'POST',
                 url     : 'server/search.php',
                 
-                 data   : {low:$low,high:$high},
+                  data   : {low:$scope.low,high:$scope.high},
  
                 headers: myfact.getHeader(),
                 transformRequest: myfact.getTransformRequest()
@@ -25,9 +29,21 @@ $http({
                 location.href = "#/view";
 
               };
-              $scope.setValue = function() {
+              $scope.micromax = function() {
                 location.href = "#/micromax";
 };
-
-
-});
+            $scope.filterPage = function() {
+                  location.href = "#/filterPage";
+};
+                
+              $scope.filterLast = function() {
+                 location.href = "#/filterLast";
+};
+           $scope.karbon = function() {
+                 location.href = "#/karbon";
+};
+             $scope.bsnl = function() {
+                 location.href = "#/bsnl";
+};
+};
+})();

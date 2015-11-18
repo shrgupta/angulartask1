@@ -1,7 +1,30 @@
-var myapp = angular.module('app', ['ui.router','myServices']);
-myapp.config(function($stateProvider, $urlRouterProvider) {
+ (function () {
+  'use strict';
+
+ angular.module('app',['ui.router'])
+ .config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/home");
     $stateProvider
+               .state('/low', {
+                url: "/low",
+                templateUrl: "layouts/low.html",
+                controller: "LowCtrl"
+            })
+               .state('/high', {
+                url: "/high",
+                templateUrl: "layouts/high.html",
+                controller: "HighCtrl"
+            })
+              .state('/bsnl', {
+                url: "/bsnl",
+                templateUrl: "layouts/bsnl.html",
+                controller: "BsnlCtrl"
+            })
+              .state('/karbon', {
+                url: "/karbon",
+                templateUrl: "layouts/karbon.html",
+                controller: "KarbonCtrl"
+            })
               .state('/micromax', {
                 url: "/micromax",
                 templateUrl: "layouts/micromax.html",
@@ -47,11 +70,8 @@ myapp.config(function($stateProvider, $urlRouterProvider) {
 //                controller: "DashboardCtrl"
             });
 });
-//myapp.config(function (localStorageServiceProvider) {
-//  localStorageServiceProvider
-//    .setPrefix('myapp')
-//    .setStorageType('localStorage')
-//    .setNotify(true, true)
-//});
+
+})();
+
 
 

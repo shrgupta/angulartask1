@@ -1,6 +1,8 @@
 (function() {
     'use strict';
- myapp.controller('RegistrationCtrl', function($scope, $http,myfact) {
+    angular.module('app').controller('RegistrationCtrl', RegistrationCtrl);
+
+  function RegistrationCtrl($scope, $http,myfact) {
 
 
     $scope.submit = function() {
@@ -29,5 +31,5 @@
 
 
 
-});
+};
 })();

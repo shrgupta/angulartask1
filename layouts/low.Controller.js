@@ -1,14 +1,13 @@
 (function () {
 'use strict';
 
-angular.module('app').controller('MicromaxCtrl',MicromaxCtrl);
- function MicromaxCtrl($scope,$http,myfact) {
-    $scope.brand="Micromax";
+angular.module('app').controller('LowCtrl',LowCtrl);
+ function LowCtrl($scope,$http,myfact) {
     
 $http({
         method  : 'POST',
-                url     : 'server/searchbrand.php',
-                data    :  {Brand:$scope.brand},
+                url     : 'server/sortdsc.php',
+                
 //forms user 
                 headers: myfact.getHeader(),
                 transformRequest: myfact.getTransformRequest()
@@ -18,18 +17,23 @@ $http({
 
                 //alert("success");
                 $scope.data=data;
-                // var pag = parseInt(data.num_rows);
-               //alert(pag);
-                //alert(data.length);
 
-                // $scope.myNumber = pag;
+               //  var pag = parseInt(data.num_rows);
+               // //alert(pag);
+               //  //alert(data.length);
 
-                // $scope.getNumber = function(num) {
-                //     return new Array(num);
-                // };
+               //  $scope.myNumber = pag;
 
+               //  $scope.getNumber = function(num) {
+               //      return new Array(num);
+               //  };
 
                 });
+
+
+
+
+
                 $scope.setValue = function() {
                 location.href = "#/view";
 };
@@ -43,13 +47,18 @@ $http({
                 
               $scope.filterLast = function() {
                  location.href = "#/filterLast";
+};             
+               $scope.micromax = function() {
+                 location.href = "#/micromax";
 };
-                 $scope.karbon = function() {
+              $scope.karbon = function() {
                  location.href = "#/karbon";
 };
-                $scope.bsnl = function() {
+              $scope.bsnl = function() {
                  location.href = "#/bsnl";
 };
-
+             $scope.high= function() {
+                 location.href = "#/high";
+};
 };
 })();

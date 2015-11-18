@@ -1,8 +1,9 @@
 
 (function() {
     'use strict';
-var myapp = angular.module('myServices', []);
-myapp.factory('myfact', function() {
+ 
+ angular.module('app').service('myfact',myfact);
+  function myfact() {
     var factory = {};
     factory.getHeader = function() {
         return {'Content-Type': 'application/x-www-form-urlencoded'};
@@ -16,5 +17,5 @@ myapp.factory('myfact', function() {
         };
     };
     return factory;
-});
+};
 })();

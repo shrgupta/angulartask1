@@ -71,7 +71,7 @@
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query3" ng-change=filterPage() >Rs 3000 - Rs 4000
+      <input type="checkbox"  ng-model="query3" ng-click=filterPage() >Rs 3000 - Rs 4000
     </label>
   </div>
 
@@ -92,26 +92,26 @@
  
 <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="brand2" ng-change=find("karbon")>Karbon 
+      <input type="checkbox" ng-model="brand2" ng-click=karbon()>Karbon 
     </label>
   </div>
  
 <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="brand3" ng-change=find("Bsnl")>Bsnl 
+      <input type="checkbox" ng-model="brand3" ng-click=bsnl()>Bsnl 
     </label>
   </div></br></br>
 <label>Sort By</label>
   <div class="checkbox">
     <label>
-     <input type="checkbox" ng-model="high" ng-change=sorthigh()>High Price 
+     <input type="checkbox" ng-model="highprice" ng-click=high() >High Price 
     </label>
     
   </div>
 
 <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="low" ng-change=sortlow()>Low Price 
+      <input type="checkbox" ng-model="lowprice" ng-click=low()>Low Price 
     </label>
      
   </div>

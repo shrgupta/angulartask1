@@ -1,4 +1,8 @@
-myapp.controller('HomeCtrl', function($scope,$http,myfact) {
+(function () {
+'use strict';
+
+angular.module('app').controller('HomeCtrl', HomeCtrl);
+function HomeCtrl($scope,$http,myfact) {
 $http.get("server/row.php").success(function(data) {
                 
                 //alert(data.6);
@@ -40,64 +44,79 @@ location.href = "#/filterLast";
 $scope.micromax = function() {
         location.href = "#/micromax";
         };
+        
+$scope.karbon = function() {
+        location.href = "#/karbon";
+        };
+ $scope.bsnl = function() {
+        location.href = "#/bsnl";
+        };  
+
+        $scope.high = function() {
+        location.href = "#/high";
+        };   
+
+    $scope.low = function() {
+        location.href = "#/low";
+        }; 
 
 
-         $scope.sorthigh = function() {
-         //if true make it false and vice versa
-         $http({
-        method  : 'POST',
-                url     : 'server/sortasc.php',
+//          $scope.high = function() {
+//          //if true make it false and vice versa
+//          $http({
+//         method  : 'POST',
+//                 url     : 'server/sortasc.php',
                 
-//forms user 
-                headers: myfact.getHeader(),
-                transformRequest: myfact.getTransformRequest()
-                })
-                .success(function(data) {
+// //forms user 
+//                 headers: myfact.getHeader(),
+//                 transformRequest: myfact.getTransformRequest()
+//                 })
+//                 .success(function(data) {
 
 
-                //alert("success");
-                $scope.data=data;
+//                 //alert("success");
+//                 $scope.data=data;
 
-                var pag = parseInt(data.num_rows);
-               //alert(pag);
-                //alert(data.length);
+//                 var pag = parseInt(data.num_rows);
+//                //alert(pag);
+//                 //alert(data.length);
 
-                $scope.myNumber = pag;
+//                 $scope.myNumber = pag;
 
-                $scope.getNumber = function(num) {
-                    return new Array(num);
-                };
+//                 $scope.getNumber = function(num) {
+//                     return new Array(num);
+//                 };
 
-                });
-    };
+//                 });
+//     };
 
-         $scope.sortlow = function() {
-        $http({
-        method  : 'POST',
-                url     : 'server/sortdsc.php',
+//          $scope.sortlow = function() {
+//         $http({
+//         method  : 'POST',
+//                 url     : 'server/sortdsc.php',
                 
-//forms user 
-                headers: myfact.getHeader(),
-                transformRequest: myfact.getTransformRequest()
-                })
-                .success(function(data) {
+// //forms user 
+//                 headers: myfact.getHeader(),
+//                 transformRequest: myfact.getTransformRequest()
+//                 })
+//                 .success(function(data) {
 
 
-                //alert("success");
-                $scope.data=data;
-                var pag = parseInt(data.num_rows);
-               //alert(pag);
-                //alert(data.length);
+//                 //alert("success");
+//                 $scope.data=data;
+//                 var pag = parseInt(data.num_rows);
+//                //alert(pag);
+//                 //alert(data.length);
 
-                $scope.myNumber = pag;
+//                 $scope.myNumber = pag;
 
-                $scope.getNumber = function(num) {
-                    return new Array(num);
-                };
+//                 $scope.getNumber = function(num) {
+//                     return new Array(num);
+//                 };
 
 
-                });
-    };
+//                 });
+//     };
     $scope.orderby = function(index) {
         //alert(index);
         $http({
@@ -114,72 +133,9 @@ $scope.micromax = function() {
         });
     };
 
-    //   $scope.orderby = function(index) {
-    //     alert(index);
-    //     $http({
-    //         method: 'POST',
-    //         url: 'server/search.php',
-    //         headers: myfact.getHeader(),
-    //         transformRequest: myfact.getTransformRequest(),
-    //         data: {page_position: index}
-    //     }).success(function(data) {
-    //           //alert(data);
-    //         $scope.data = data;
-
-
-    //     });
-    // };
-
-    // $scope.ordeby = function(index) {
-    //     //alert(index);
-    //     $http({
-    //         method: 'POST',
-    //         url: 'server/sortasc.php',
-    //         headers: myfact.getHeader(),
-    //         transformRequest: myfact.getTransformRequest(),
-    //         data: {page_position: index}
-    //     }).success(function(data) {
-
-    //         $scope.data = data;
-
-
-    //     });
-    // };
-   // $scope.orderby = function(index) {
-   //      //alert(index);
-   //      $http({
-   //          method: 'POST',
-   //          url: 'server/searchbrand.php',
-   //          headers: myfact.getHeader(),
-   //          transformRequest: myfact.getTransformRequest(),
-   //          data: {page_position: index}
-   //      }).success(function(data) {
-
-   //          $scope.data = data;
-
-
-   //      });
-   //  };
-
-  // $scope.orderby = function(index) {
-  //       alert(index);
-  //       $http({
-  //           method: 'POST',
-  //           url: 'server/sortdsc.php',
-  //           headers: myfact.getHeader(),
-  //           transformRequest: myfact.getTransformRequest(),
-  //           data: {page_position: index}
-  //       }).success(function(data) {
-
-  //           $scope.data = data;
-
-
-  //       });
-  //   };
-
-
-
-            });
+    
+            };
+  })();
 
 
 
