@@ -1,0 +1,42 @@
+
+<div class="container">
+<div class="row">
+<div class="col-md-9">
+
+<div class="row">
+                   
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="user in data.data1 |orderBy:sortKey:reverse | limitTo:5 track by $index">
+                        <div class="thumbnail">
+                            <img src={{user.image}} alt="comming soon" ng-model='image' style="
+                             width: 72px;"/>
+                            <div class="caption">
+                                <h5 class="pull-right" ng-model='price'>Price:{{user.price}}</h5>
+                                <h5><label ng-model='product'>{{user.Product_name}}</label>
+                                </h5>
+                                <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
+                            </div>
+                            <div class="ratings">
+                                <p class="pull-right">15 reviews</p>
+                                <p>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                    <span class="glyphicon glyphicon-star"></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>   </br></br>         
+                                     
+                                     <ul class="pagination">
+                                        <li ng-repeat="i in getNumber(myNumber) track by $index">
+                                          <a href="#" ng-click=orderby($index) >{{$index + 1}}</a></li> 
+                                    </ul>
+                                   
+                              
+
+
+                </div>
+            </div>
+        </div>
+    </div>

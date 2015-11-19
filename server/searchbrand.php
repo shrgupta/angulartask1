@@ -22,7 +22,8 @@ if (!$conn) {
   $item_per_page = 5;
 
 
-    $key = $_POST['Brand'];
+      $key = $_POST['Brand'];
+     // $key='Micromax';
   
 
 

@@ -70,21 +70,15 @@ $http({
                 });
 
 };
+
 $scope.filterLast = function() {
 location.href = "#/filterLast";
 };
 
 
-$scope.micromax = function() {
-        location.href = "#/micromax";
-        };
+
         
-$scope.karbon = function() {
-        location.href = "#/karbon";
-        };
- $scope.bsnl = function() {
-        location.href = "#/bsnl";
-        };  
+
 
         $scope.high = function() {
         location.href = "#/high";

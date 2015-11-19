@@ -86,19 +86,19 @@
 
  <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="brand1" ng-change=searchbrand(Micromax)>Micromax 
+      <input type="checkbox" ng-model="brand1" ng-change=searchbrand('Micromax')>Micromax 
     </label>
   </div>
  
 <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="brand2" ng-change=searchbrand(karbon)>Karbon 
+      <input type="checkbox" ng-model="brand2" ng-change=searchbrand('karbon')>Karbon 
     </label>
   </div>
  
 <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="brand3" ng-change=searchbrand(Bsnl)>Bsnl 
+      <input type="checkbox" ng-model="brand3" ng-change=searchbrand('Bsnl')>Bsnl 
     </label>
   </div></br></br>
 <label>Sort By</label>
@@ -156,7 +156,7 @@
 
                 </div>
 
-                <div class="row">
+                <!-- <div class="row">
                    
                     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="user in data.data1 |orderBy:sortKey:reverse | limitTo:5 track by $index">
                         <div class="thumbnail">
@@ -190,7 +190,7 @@
 
 
                 </div>
-
+ -->
             </div>
 
         </div>
