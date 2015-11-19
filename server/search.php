@@ -27,8 +27,8 @@ if (!$conn) {
 
 
 
-    $low = $_REQUEST['low'];
-   $high= $_REQUEST['high'];
+   $low = $_POST['low'];
+   $high= $_POST['high'];
   
    
    $result1 = mysql_query("SELECT * FROM product_mobile WHERE  price BETWEEN $low AND $high",$conn );

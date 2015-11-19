@@ -1,10 +1,12 @@
 (function () {
 'use strict';
 
+
 angular.module('app').controller('ViewCtrl', ViewCtrl);
   function ViewCtrl($scope,$http,myfact) {
-    $scope.low=0;
-    $scope.high=2000;
+
+    $scope.low = 0;
+    $scope.high = 2000;
 
 $http({
                method  : 'POST',
@@ -16,11 +18,12 @@ $http({
                 transformRequest: myfact.getTransformRequest()
                 })
                 .success(function(data) {
+                   
                    $scope.data=data;
                  
                    
                   
-                alert("success");
+                //alert("success");
                 //alert($scope.data.num_rows);
                
               

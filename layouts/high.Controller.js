@@ -85,8 +85,8 @@ $http({
               $scope.bsnl = function() {
                  location.href = "#/bsnl";
 };
-$scope.low = function() {
+         $scope.low = function() {
                  location.href = "#/low";
-};
+          };
 };
 })();

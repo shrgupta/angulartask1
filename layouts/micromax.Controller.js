@@ -16,17 +16,9 @@ $http({
                 .success(function(data) {
 
 
-                //alert("success");
+                
                 $scope.data=data;
-                // var pag = parseInt(data.num_rows);
-               //alert(pag);
-                //alert(data.length);
-
-                // $scope.myNumber = pag;
-
-                // $scope.getNumber = function(num) {
-                //     return new Array(num);
-                // };
+               
 
 
                 });
