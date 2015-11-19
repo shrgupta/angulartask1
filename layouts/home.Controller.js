@@ -26,15 +26,49 @@ $http.get("server/row.php").success(function(data) {
 
 
        
-$scope.setValue = function() {
-location.href = "#/view";
+$scope.setValue = function(first,second) {
+
+    // $scope.low = first;
+    // $scope.high = second;
+
+$http({
+               method  : 'POST',
+                url     : 'server/search.php',
+                
+                 data   : {low:first,high:second},
+ 
+                headers: myfact.getHeader(),
+                transformRequest: myfact.getTransformRequest()
+                })
+                .success(function(data) {
+                   //alert(success);
+                   $scope.data=data;
+                 
+
+                });
+// location.href = "#/view";
 };
 
-$scope.filterValue = function() {
-location.href = "#/filter";
-};
-$scope.filterPage = function() {
-location.href = "#/filterPage";
+
+$scope.searchbrand = function(brand) {
+ 
+
+    
+$http({
+                method  : 'POST',
+                url     : 'server/searchbrand.php',
+                data    :  {Brand:brand},
+//forms user 
+                headers: myfact.getHeader(),
+                transformRequest: myfact.getTransformRequest()
+                })
+                .success(function(data) {
+
+                $scope.data=data;
+               
+
+                });
+
 };
 $scope.filterLast = function() {
 location.href = "#/filterLast";
@@ -61,62 +95,6 @@ $scope.karbon = function() {
         }; 
 
 
-//          $scope.high = function() {
-//          //if true make it false and vice versa
-//          $http({
-//         method  : 'POST',
-//                 url     : 'server/sortasc.php',
-                
-// //forms user 
-//                 headers: myfact.getHeader(),
-//                 transformRequest: myfact.getTransformRequest()
-//                 })
-//                 .success(function(data) {
-
-
-//                 //alert("success");
-//                 $scope.data=data;
-
-//                 var pag = parseInt(data.num_rows);
-//                //alert(pag);
-//                 //alert(data.length);
-
-//                 $scope.myNumber = pag;
-
-//                 $scope.getNumber = function(num) {
-//                     return new Array(num);
-//                 };
-
-//                 });
-//     };
-
-//          $scope.sortlow = function() {
-//         $http({
-//         method  : 'POST',
-//                 url     : 'server/sortdsc.php',
-                
-// //forms user 
-//                 headers: myfact.getHeader(),
-//                 transformRequest: myfact.getTransformRequest()
-//                 })
-//                 .success(function(data) {
-
-
-//                 //alert("success");
-//                 $scope.data=data;
-//                 var pag = parseInt(data.num_rows);
-//                //alert(pag);
-//                 //alert(data.length);
-
-//                 $scope.myNumber = pag;
-
-//                 $scope.getNumber = function(num) {
-//                     return new Array(num);
-//                 };
-
-
-//                 });
-//     };
     $scope.orderby = function(index) {
         //alert(index);
         $http({

@@ -45,11 +45,7 @@
                 templateUrl: "layouts/filter.html",
                 controller: "FilterCtrl"
             })
-            .state('/view', {
-                url: "/view",
-                templateUrl: "layouts/view.html",
-                controller: "ViewCtrl"
-            })
+            
 
             .state('/home', {
                 url: "/home",

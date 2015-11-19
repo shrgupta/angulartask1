@@ -59,25 +59,25 @@
 <label>Price</label>
 <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query" ng-click=setValue()  >Rs 2000 and Below 
+      <input type="checkbox"  ng-model="query" ng-change = setValue(0,2000)  >Rs 2000 and Below 
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query2" ng-click=filterValue() >Rs 2000 - Rs 3000 
+      <input type="checkbox"  ng-model="query2" ng-change = setValue(2000,3000) >Rs 2000 - Rs 3000 
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query3" ng-click=filterPage() >Rs 3000 - Rs 4000
+      <input type="checkbox"  ng-model="query3" ng-change =setValue(3000,4000) >Rs 3000 - Rs 4000
     </label>
   </div>
 
   <div class="checkbox">
     <label>
-      <input type="checkbox"  ng-model="query4" ng-click=filterLast()> Rs 4000 and Above 
+      <input type="checkbox"  ng-model="query4" ng-change=setValue(4000,6000)> Rs 4000 and Above 
     </label>
   </div></br>
 
@@ -86,19 +86,19 @@
 
  <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="brand1" ng-click=micromax()>Micromax 
+      <input type="checkbox" ng-model="brand1" ng-change=searchbrand(Micromax)>Micromax 
     </label>
   </div>
  
 <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="brand2" ng-click=karbon()>Karbon 
+      <input type="checkbox" ng-model="brand2" ng-change=searchbrand(karbon)>Karbon 
     </label>
   </div>
  
 <div class="checkbox">
     <label>
-      <input type="checkbox" ng-model="brand3" ng-click=bsnl()>Bsnl 
+      <input type="checkbox" ng-model="brand3" ng-change=searchbrand(Bsnl)>Bsnl 
     </label>
   </div></br></br>
 <label>Sort By</label>
@@ -161,7 +161,7 @@
                     <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="user in data.data1 |orderBy:sortKey:reverse | limitTo:5 track by $index">
                         <div class="thumbnail">
                             <img src={{user.image}} alt="comming soon" ng-model='image' style="
-                             width: 90px;"/>
+                             width: 72px;"/>
                             <div class="caption">
                                 <h5 class="pull-right" ng-model='price'>Price:{{user.price}}</h5>
                                 <h5><label ng-model='product'>{{user.Product_name}}</label>

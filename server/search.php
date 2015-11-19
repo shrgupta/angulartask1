@@ -31,7 +31,7 @@ if (!$conn) {
    $high= $_POST['high'];
   
    
-   $result1 = mysql_query("SELECT * FROM product_mobile WHERE  price BETWEEN $low AND $high",$conn );
+$result1 = mysql_query("SELECT * FROM product_mobile WHERE  price BETWEEN $low AND $high",$conn );
 $num_rows = mysql_num_rows($result1);
 $num_rows = ceil($num_rows/5);
 
