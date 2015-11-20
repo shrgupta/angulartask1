@@ -6,24 +6,17 @@
     $urlRouterProvider.otherwise("/home");
     $stateProvider
 
-            .state('/', {
-            url: "/",
-            views: {
-                "viewA": {
-                    templateUrl: "layouts/home.html",
-                  controller: "HomeCtrl"
-                },
-                "viewB": {
-                    templateUrl: "layouts/product.html"
-                    
-                }
-            }
-        })
+        .state('/home', {
+                url: "/home",
+                templateUrl: "layouts/home.html",
+                 controller: "HomeCtrl"
+            })    
+
 
 .state('/registration', {
                 url: "/registration",
                 templateUrl: "layouts/registration.html",
-                controller: "RegistrationCtrl"
+                 controller: "RegistrationCtrl"
             })
 
 
