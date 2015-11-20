@@ -10,7 +10,14 @@
                 url: "/home",
                 templateUrl: "layouts/home.html",
                  controller: "HomeCtrl"
+            })  
+
+            .state('/aboutPage', {
+                url: "/aboutPage",
+                templateUrl: "layouts/aboutPage.html",
+                 
             })    
+  
 
 
 .state('/registration', {
