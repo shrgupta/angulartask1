@@ -6,32 +6,80 @@
     $urlRouterProvider.otherwise("/home");
     $stateProvider
 
-        .state('/home', {
-                url: "/home",
-                templateUrl: "layouts/home.html",
-                 controller: "HomeCtrl"
-            })  
+        .state('home', {
+            url: '/home',
+            views: {
+               
+               
 
-            .state('/aboutPage', {
-                url: "/aboutPage",
-                templateUrl: "layouts/aboutPage.html",
-                 
-            })    
+
+
+                "viewB": {
+                    templateUrl: 'layouts/home.html',
+                    controller: 'HomeCtrl'
+                },
+                "viewA": {
+                    templateUrl: 'layouts/header.html'
+                      
+                }
+
+               
+            }
+        })
   
+
+.state('/aboutPage', {
+                url: "/aboutPage",
+                views: {
+                "viewB": {
+                    templateUrl: 'layouts/aboutPage.html',
+                    controller: 'HomeCtrl'
+                },
+                "viewA": {
+                    templateUrl: 'layouts/header.html'
+                      
+                }
+                
+                } 
+            })
+
+
+
+
+
 
 
 .state('/registration', {
                 url: "/registration",
-                templateUrl: "layouts/registration.html",
-                 controller: "RegistrationCtrl"
+                views: {
+                "viewB": {
+                    templateUrl: 'layouts/registration.html',
+                    controller: 'RegistrationCtrl'
+                },
+                "viewA": {
+                    templateUrl: 'layouts/header.html'
+                      
+                }
+               } 
+                
             })
 
 
 
          .state('/login', {
                 url: "/login",
-                templateUrl: "layouts/login.html",
-//                controller: "DashboardCtrl"
+                views: {
+                "viewB": {
+                    templateUrl: 'layouts/login.html',
+                    
+                },
+                "viewA": {
+                    templateUrl: 'layouts/header.html'
+                      
+                }
+               } 
+
+
             });
 
         

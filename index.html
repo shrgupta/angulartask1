@@ -26,6 +26,8 @@
     <script src="service/service.js"></script>
      <script src="layouts/registration.Controller.js"></script>
      <script src="layouts/home.Controller.js"></script>
+     <script src="layouts/footer_controller.js"></script>
+     <script src="layouts/footer_directive.js"></script>
      <!-- // <script src="layouts/view.Controller.js"></script>
      // <script src="layouts/filter.Controller.js"></script>
      // <script src="layouts/filterPage.Controller.js"></script>
@@ -46,9 +48,11 @@
 
 <body>
     
-     <div ui-view></div>
-      
+     <div ui-view="viewA"></div>
 
-</body>
+      <div ui-view="viewB"></div>
+
+      <div footer></div>
+
 
 </html>
