@@ -14,11 +14,11 @@ angular.module('app')
                     },
                     "header": {
                         
-                        templateUrl: "layouts/header.html"
+                        templateUrl: "app/common/header.html"
                     },
                     "footer": {
                         
-                        templateUrl: "layouts/footer.html"
+                        templateUrl: "app/common/footer.html"
                     }
                 }
             })
@@ -29,7 +29,7 @@ angular.module('app')
                 views: {
                     "": {
                         controller: "HomeCtrl",
-                        templateUrl: "layouts/home.html"
+                        templateUrl: "app/home/home.html"
                     }
                 }
             })
@@ -42,7 +42,7 @@ angular.module('app')
                 views: {
                     "": {
                        
-                        templateUrl: "layouts/aboutPage.html"
+                        templateUrl: "app/about/aboutPage.html"
                     }
                 }
             })
@@ -54,7 +54,7 @@ angular.module('app')
                 views: {
                     "": {
                        
-                        templateUrl: "layouts/login.html"
+                        templateUrl: "app/login/login.html"
                     }
                 
             }
@@ -68,7 +68,7 @@ angular.module('app')
                 views: {
                     "": {
                        
-                        templateUrl: "layouts/registration.html"
+                        templateUrl: "app/registration/registration.html"
                     }
                 
             }

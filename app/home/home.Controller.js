@@ -143,22 +143,7 @@ $http({
 
 };
 
-$scope.filterLast = function() {
-location.href = "#/filterLast";
-};
 
-
-
-        
-
-
-        $scope.high = function() {
-        location.href = "#/high";
-        };   
-
-    $scope.low = function() {
-        location.href = "#/low";
-        }; 
 
 
     $scope.orderby = function(index) {
