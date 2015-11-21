@@ -1,92 +1,82 @@
- (function () {
-  'use strict';
+'use strict';
 
- angular.module('app',['ui.router'])
- .config(function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/home");
-    $stateProvider
+angular.module('app')
+    .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+        $urlRouterProvider.otherwise('/home');
 
-        .state('home', {
-            url: '/home',
-            views: {
-               
-               
-
-
-
-                "viewB": {
-                    templateUrl: 'layouts/home.html',
-                    controller: 'HomeCtrl'
-                },
-                "viewA": {
-                    templateUrl: 'layouts/header.html'
-                      
+        $stateProvider
+            .state("root",
+            {
+                 abstract: true,
+                views: {
+                    "": {
+                        template: '<div ui-view=""></div>'
+                    },
+                    "header": {
+                        
+                        templateUrl: "layouts/header.html"
+                    },
+                    "footer": {
+                        
+                        templateUrl: "layouts/footer.html"
+                    }
                 }
+            })
+            .state("home",
+            {
+                parent: "root",
+                url: "/home",
+                views: {
+                    "": {
+                        controller: "HomeCtrl",
+                        templateUrl: "layouts/home.html"
+                    }
+                }
+            })
 
-               
-            }
-        })
-  
 
-.state('/aboutPage', {
+       .state("aboutPage",
+            {
+                parent: "root",
                 url: "/aboutPage",
                 views: {
-                "viewB": {
-                    templateUrl: 'layouts/aboutPage.html',
-                    controller: 'HomeCtrl'
-                },
-                "viewA": {
-                    templateUrl: 'layouts/header.html'
-                      
+                    "": {
+                       
+                        templateUrl: "layouts/aboutPage.html"
+                    }
                 }
-                
-                } 
             })
 
-
-
-
-
-
-
-.state('/registration', {
-                url: "/registration",
-                views: {
-                "viewB": {
-                    templateUrl: 'layouts/registration.html',
-                    controller: 'RegistrationCtrl'
-                },
-                "viewA": {
-                    templateUrl: 'layouts/header.html'
-                      
-                }
-               } 
-                
-            })
-
-
-
-         .state('/login', {
+        .state("login",
+            {
+                parent: "root",
                 url: "/login",
                 views: {
-                "viewB": {
-                    templateUrl: 'layouts/login.html',
-                    
-                },
-                "viewA": {
-                    templateUrl: 'layouts/header.html'
-                      
-                }
-               } 
+                    "": {
+                       
+                        templateUrl: "layouts/login.html"
+                    }
+                
+            }
+
+         })
+
+.state("registration",
+            {
+                parent: "root",
+                url: "/registration",
+                views: {
+                    "": {
+                       
+                        templateUrl: "layouts/registration.html"
+                    }
+                
+            }
+
+         });
 
 
-            });
-
-        
-            
-});
-
-})();
 
 
 
+    }])
