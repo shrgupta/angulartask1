@@ -1,33 +1,26 @@
-
-
 <div class="col-sm-4 col-md-offset-4">
-    
+
 
     <div class="row">
-   <form name="userForm" method="post" novalidate="" class="form-signin" >
-       <h2 class="form-signin-heading">Please sign in</h2><br>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control ng-untouched ng-valid-email ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-dirty ng-invalid ng-invalid-required" ng-model="email" required="" ng-minlength="5" ng-maxlength="30" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/"   placeholder="Email address"  autofocus=""><br>
-        <span style="color:red" ng-show="userForm.email.$error.pattern" class="ng-hide"> * Invalid email</span> 
-        <span style="color:red" ng-show="userForm.email.$error.minlength" class="ng-hide">* Your email is too short</span>
-        <span style="color:red" ng-show="userForm.email.$error.maxlength" class="ng-hide">* Your email is too long</span>
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" ng-model="pass">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" value="remember-me"> Remember me
-          </label>
-        </div>
-        <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="submitForm()" ng-disabled="
+        <form name="userForm" method="post" novalidate="" class="form-signin">
+            <h2 class="form-signin-heading">Please sign in</h2>
+            <br>
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input type="email" id="inputEmail" class="form-control ng-untouched ng-valid-email ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-dirty ng-invalid ng-invalid-required" ng-model="email" required="" ng-minlength="5" ng-maxlength="30" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/" placeholder="Email address" autofocus="">
+            <br>
+            <span style="color:red" ng-show="userForm.email.$error.pattern" class="ng-hide"> * Invalid email</span>
+            <span style="color:red" ng-show="userForm.email.$error.minlength" class="ng-hide">* Your email is too short</span>
+            <span style="color:red" ng-show="userForm.email.$error.maxlength" class="ng-hide">* Your email is too long</span>
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" ng-model="pass">
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="remember-me"> Remember me
+                </label>
+            </div>
+            <button class="btn btn-lg btn-info btn-block" type="submit" ng-click="submitForm()" ng-disabled="
                                                     userForm.$invalid || userForm.email.$error.pattern ">Sign in</button>
-      </form> 
+        </form>
     </div>
-    
-    </div>
-    
-    
-    
-    
-    
-    
-    
+
+</div>

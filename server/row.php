@@ -21,9 +21,7 @@
    $result1 = mysql_query("SELECT * FROM product_mobile",$conn );
    $num_rows = mysql_num_rows($result1);
    $num_rows = ceil($num_rows/5);
-   //echo $num_rows;
-   //$sql1="SELECT Fname,Lname,Email,Age FROM jsform ORDER BY id DESC LIMIT $item_per_page OFFSET $offset";
-   //$sql1="SELECT * FROM product_mobile ORDER BY id DESC LIMIT $item_per_page OFFSET $offset" ;
+   
    $sql1="SELECT * FROM product_mobile ORDER BY id  LIMIT  $item_per_page OFFSET $offset " ;
   
    $retval = mysql_query($sql1,$conn);

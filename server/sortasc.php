@@ -23,11 +23,6 @@ if (!$conn) {
   $item_per_page = 5;
 
 
-
-
-
-    
-
 $query = "SELECT * FROM product_mobile ORDER BY price asc  LIMIT $item_per_page OFFSET $offset";
 
 // $query = "SELECT * FROM product_mobile WHERE ( Product_name  LIKE '%" . $key . "%'  OR brand LIKE '%" . $key . "%' OR price LIKE '%" . $key . "%' OR type LIKE '%" . $key . "%')";
@@ -38,13 +33,7 @@ $result1 = mysql_query("SELECT * FROM product_mobile",$conn );
 $num_rows = mysql_num_rows($result1);
 $num_rows = ceil($num_rows/5);
 
-//  while($row1=mysql_fetch_array($retval))
-// {  
-    
-//      $output[]=$row1;
-    
-  
-// }
+
 $arr= array();
 
     while($row = mysql_fetch_assoc($retval))

@@ -1,14 +1,17 @@
 <div class="panel panel-default">
 
     <div class="panel-body">
-       
-        <div class=" col-sm-4 col-sm-offset-4"><br><br>
 
-            <h3 class="form-signin-heading">Registration Form</h3><br>
+        <div class=" col-sm-4 col-sm-offset-4">
+            <br>
+            <br>
+
+            <h3 class="form-signin-heading">Registration Form</h3>
+            <br>
             <!-- FORM -->
-            <div class="panel-body" >
+            <div class="panel-body">
 
-                <form name="userForm"  method="post" novalidate="" class="form-signin ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-email ng-dirty ng-valid-parse ng-submitted ng-invalid ng-invalid-required">
+                <form name="userForm" method="post" novalidate="" class="form-signin ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-valid-email ng-dirty ng-valid-parse ng-submitted ng-invalid ng-invalid-required">
 
                     <div class="form-signin">
                         <label>User Name</label>
@@ -17,7 +20,7 @@
                         <div class="form-group">
                             <label>Email</label>
                             <input type="email" name="email" class="form-control ng-untouched ng-valid-email ng-valid-pattern ng-valid-minlength ng-valid-maxlength ng-dirty ng-invalid ng-invalid-required" ng-model="email" required="" ng-minlength="5" ng-maxlength="30" ng-pattern="/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/" autofocus="">
-                            <span style="color:red" ng-show="userForm.email.$error.pattern" class="ng-hide"> * Invalid email</span> 
+                            <span style="color:red" ng-show="userForm.email.$error.pattern" class="ng-hide"> * Invalid email</span>
                             <span style="color:red" ng-show="userForm.email.$error.minlength" class="ng-hide">* Your email is too short</span>
                             <span style="color:red" ng-show="userForm.email.$error.maxlength" class="ng-hide">* Your email is too long</span>
                         </div>
@@ -34,18 +37,20 @@
 
                         </div>
 
-                        <button type="submit" class="btn btn-info" ng-click="submit()">Register</button><br>
+                        <button type="submit" class="btn btn-info" ng-click="submit()">Register</button>
+                        <br>
                     </div>
                 </form>
 
 
 
             </div>
-        </div> 
-       
-
-        <br><br>
+        </div>
 
 
-    </div> 
+        <br>
+        <br>
+
+
+    </div>
 </div>
