@@ -2,36 +2,26 @@
     'use strict';
     angular.module('app').controller('RegistrationCtrl', RegistrationCtrl);
 
-    function RegistrationCtrl($scope, $http, myfact) {
+    function RegistrationCtrl($scope,Request,$localStorage,$state) {
 
 
         $scope.submit = function() {
 
 
             // Posting data to php file
-            $http({
-                    method: 'POST',
-                    url: 'server/registration.php',
-                    headers: myfact.getHeader(),
-                    transformRequest: myfact.getTransformRequest(),
-                    data: {
-                        user: $scope.user,
-                        email: $scope.email,
-                        pass: $scope.pass,
-                        cpass: $scope.cpass
-                    },
-                })
-                .success(function(data) {
+             Request.send('registration.php', {user: $scope.user, email: $scope.email, pass: $scope.pass, cpass: $scope.cpass }, 'POST').then(function(response) {
 
-
-                    $scope.user = "";
+               $scope.user = "";
                     $scope.email = "";
                     $scope.pass = "";
                     $scope.cpass = "";
-                    location.href = "#/home";
+                    state.go('#/home');
 
-
-                });
+        }, function(response) {
+                $log.error(response);
+            });
+  
+                
         };
 
 

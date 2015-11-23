@@ -2,7 +2,7 @@
     'use strict';
     angular.module('app').controller('LoginCtrl', LoginCtrl);
 
-    function LoginCtrl($scope, $http, myfact) {
+    function LoginCtrl($scope,Request,$localStorage,$state) {
 
 
 
@@ -10,39 +10,22 @@
 
             //localStorageService.set('email', $scope.email);
 
-            $http({
-                    method: 'POST',
-                    url: 'server/login.php',
-                    headers: myfact.getHeader(),
-                    transformRequest: myfact.getTransformRequest(),
-                    data: {
-                        email: $scope.email,
-                        pass: $scope.pass
-                    },
-                })
-                .success(function(data) {
+            Request.send('login.php', {email: $scope.email, pass: $scope.pass }, 'POST').then(function(response) {
 
-                    if (data === "Invalid username or password") {
+               $scope.data = response;
+               if ($scope.data === "Invalid username or password") {
                         alert('Invalid');
-
-
-
-
-                    } else {
+                        } else {
                         $localStorage.email1 = $scope.email;
                         $localStorage.user1 = $scope.pass;
-
-
-
+                        $state.go('/dashboard') ;
                         
                     }
 
-
-
-
-                });
-
-
+        }, function(response) {
+                $log.error(response);
+            });
+  
         };
     };
 })();

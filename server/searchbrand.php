@@ -23,17 +23,14 @@ if (!$conn) {
 
 
       $key = $_POST['Brand'];
+      $pre = $_POST['Brand1'];
+      
+ 
+      
      // $key='Micromax';
   
 
-
-
-// SELECT ID FROM T WHERE ? BETWEEN MN AND MX ORDER BY MN LIMIT 1 
-// $query = "SELECT * FROM product_mobile WHERE  brand  LIKE '%Micromax%' ";  
 $query = "SELECT * FROM product_mobile WHERE  brand  LIKE '%".$key."%'  ORDER BY id  LIMIT $item_per_page OFFSET $offset";
-
-// $query = "SELECT * FROM product_mobile WHERE ( Product_name  LIKE '%" . $key . "%'  OR brand LIKE '%" . $key . "%' OR price LIKE '%" . $key . "%' OR type LIKE '%" . $key . "%')";
-
  $retval = mysql_query( $query, $conn );
   $result1 = mysql_query("SELECT * FROM product_mobile",$conn );
 $num_rows = mysql_num_rows($result1);

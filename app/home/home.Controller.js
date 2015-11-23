@@ -3,21 +3,12 @@
 
     angular.module('app').controller('HomeCtrl', HomeCtrl);
 
-    function HomeCtrl($scope, $http, myfact) {
+    function HomeCtrl($scope, $http,Request,ascRequest,dscRequest) {
 
-        $scope.display = function() {
-
-            $http({
-                    method: 'POST',
-                    url: 'server/row.php',
-
-                    headers: myfact.getHeader(),
-                    transformRequest: myfact.getTransformRequest()
-                })
-                .success(function(data) {
-                    //alert(success);
-                    $scope.data = data;
-                    var pag = parseInt(data.num_rows);
+         $scope.display = function() {
+             Request.send('row.php', 'POST').then(function(response) {
+            $scope.data = response;
+            var pag = parseInt($scope.data.num_rows);
                     // alert(pag);
                     //alert(data.length);
 
@@ -27,126 +18,98 @@
                         return new Array(num);
                     };
 
-
-                });
-        }
-
-
-        $scope.sortdsc = function() {
-
-            $http({
-                    method: 'POST',
-                    url: 'server/sortdsc.php',
-
-                    //forms user 
-                    headers: myfact.getHeader(),
-                    transformRequest: myfact.getTransformRequest()
-                })
-                .success(function(data) {
+                
+                    
+                }, function(response) {
+                $log.error(response);
+            });
+  
+         }
 
 
-                    //alert("success");
-                    $scope.data = data;
+         $scope.sortdsc = function() {
+        dscRequest.desending().then(function(response) {
+                
+                $scope.data = response;
+                console.log(response);
+                    
+                }, function(response) {
+                $log.error(response);
+            });
+  
+     
+                };
+            
 
+        
 
-                });
+         $scope.sortasc = function() {
+                        //console.log('hii');
+             ascRequest.ascending().then(function(response) {
+                
+                $scope.data = response;
+                console.log(response);
+                    
+                }, function(response) {
+                $log.error(response);
+            });
+                //console.log(asc);
+                 
+     
+                };
+       
 
-        }
-
-
-        $scope.sortasc = function() {
-
-            $http({
-                    method: 'POST',
-                    url: 'server/sortasc.php',
-
-                    //forms user 
-                    headers: myfact.getHeader(),
-                    transformRequest: myfact.getTransformRequest()
-                })
-                .success(function(data) {
-
-
-                    //alert("success");
-                    $scope.data = data;
-
-
-                });
-
-        }
-
+        
 
 
 
         $scope.setValue = function(first, second) {
-
+         Request.send('search.php', {low: first,high: second }, 'POST').then(function(response) {
             // $scope.low = first;
             // $scope.high = second;
 
-            $http({
-                    method: 'POST',
-                    url: 'server/search.php',
-
-                    data: {
-                        low: first,
-                        high: second
-                    },
-
-                    headers: myfact.getHeader(),
-                    transformRequest: myfact.getTransformRequest()
-                })
-                .success(function(data) {
-                    //alert(success);
-                    $scope.data = data;
+            $scope.data = response;
+                
+                    
+                }, function(response) {
+                $log.error(response);
+            });
+  
+     
+                };
+                
+        
 
 
-                });;
-        };
+         $scope.searchbrand = function(brand) {
+            Request.send('searchbrand.php', {Brand:brand,Brand1:brand }, 'POST').then(function(response) {
 
+               $scope.data = response;
 
-        $scope.searchbrand = function(brand) {
+        }, function(response) {
+                $log.error(response);
+            });
+  
+     
+                };
+                
 
-
-
-            $http({
-                    method: 'POST',
-                    url: 'server/searchbrand.php',
-                    data: {
-                        Brand: brand
-                    },
-                    //forms user 
-                    headers: myfact.getHeader(),
-                    transformRequest: myfact.getTransformRequest()
-                })
-                .success(function(data) {
-
-                    $scope.data = data;
-
-
-                });
-
-        };
-
+       
 
 
 
         $scope.orderby = function(index) {
-            //alert(index);
-            $http({
-                method: 'POST',
-                url: 'server/row.php',
-                headers: myfact.getHeader(),
-                transformRequest: myfact.getTransformRequest(),
-                data: {
-                    page_position: index
-                }
-            }).success(function(data) {
+            Request.send('row.php', {page_position: index }, 'POST').then(function(response) {
+                $scope.data = response;
 
-                $scope.data = data;
-
-
+        }, function(response) {
+                $log.error(response);
             });
-        };
+  
+     
+                };
+            
+        
 
 
     };

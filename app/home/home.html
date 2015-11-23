@@ -1,9 +1,4 @@
 
-            <!-- /.navbar-collapse -->
-       
-        <!-- /.container -->
-    </nav>
-
     <!-- Page Content -->
     <div class="container">
 
@@ -51,13 +46,12 @@
  
 <label>Brand</label>
 
- <div class="checkbox">
-    <label>
-      <input type="checkbox" ng-model="brand1" ng-change=searchbrand('Micromax')>Micromax 
-    </label>
+ <div class="checkbox" ng-controller="BrandCtrl" >
+    <label ng-repeat="category in data">
+      <input type="checkbox" ng-model="brand1" ng-change="searchbrand(category.brand)"> {{category.brand}} </br></br></label>
   </div>
  
-<div class="checkbox">
+<!-- <div class="checkbox">
     <label>
       <input type="checkbox" ng-model="brand2" ng-change=searchbrand('karbon')>Karbon 
     </label>
@@ -68,7 +62,7 @@
       <input type="checkbox" ng-model="brand3" ng-change=searchbrand('Bsnl')>Bsnl 
     </label>
   </div></br></br>
-<label>Sort By</label>
+ --><label>Sort By</label>
   <div class="checkbox">
     <label>
      <input type="checkbox" ng-model="highprice" ng-click=sortdsc() >High Price 
@@ -146,10 +140,13 @@
                                 </p>
                             </div>
                         </div></div>
+                        
+                           <div class="btn-group pull-right">
                         <ul class="pagination">
                                         <li ng-repeat="i in getNumber(myNumber) track by $index">
                                           <a href="#" ng-click=orderby($index) >{{$index + 1}}</a></li> 
                                     </ul>
+                                     </div>
                        </br></br>         
                                      
                               

@@ -49,7 +49,7 @@ angular.module('app')
             url: "/login",
             views: {
                 "": {
-
+                      
                     templateUrl: "app/login/login.html"
                 }
 
@@ -62,8 +62,20 @@ angular.module('app')
             url: "/registration",
             views: {
                 "": {
-
+                    
                     templateUrl: "app/registration/registration.html"
+                }
+
+            }
+
+        })
+        .state("dashboard", {
+            parent: "root",
+            url: "/dashboard",
+            views: {
+                "": {
+                       
+                    templateUrl: "app/dashboard/dashboard.html"
                 }
 
             }
