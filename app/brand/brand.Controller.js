@@ -3,7 +3,7 @@
 
     angular.module('app').controller('BrandCtrl', BrandCtrl);
 
-    function BrandCtrl($scope, $http,Request) {
+    function BrandCtrl($scope,Request,$log) {
 
 
              Request.send('brand.php', 'POST').then(function(response) {

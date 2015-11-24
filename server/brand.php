@@ -1,7 +1,6 @@
 <?php
 
 
-
 //require 'connect.php';
 $dbhost = 'localhost';
 $dbuser = 'root';
@@ -11,6 +10,8 @@ mysql_select_db('shraddha');
 if (!$conn) {
     die('Could not connect: ' . mysql_error());
 }
+
+
   // if (isset($_POST['page_position'])){
   //       $page_position = $_POST['page_position'];
   // } 

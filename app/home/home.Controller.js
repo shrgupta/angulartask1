@@ -2,8 +2,7 @@
     'use strict';
 
     angular.module('app').controller('HomeCtrl', HomeCtrl);
-
-    function HomeCtrl($scope, $http,Request,ascRequest,dscRequest) {
+    function HomeCtrl($scope, $http,Request,ascRequest,dscRequest,$log) {
 
          $scope.display = function() {
              Request.send('row.php', 'POST').then(function(response) {
@@ -80,11 +79,35 @@
                 
         
 
-
+                var values=[];
          $scope.searchbrand = function(brand) {
-            Request.send('searchbrand.php', {Brand:brand,Brand1:brand }, 'POST').then(function(response) {
+            
+            values.push(brand);
+            var len=values.length;
+            var urlBase = "searchbrand.php?brand0="
+            for (var i = 0; i < len; i++) {
+                if(i==0)
+                {
+                urlBase=urlBase+values[0];
+                }
+                else
+                {
+                urlBase = urlBase + "&brand" + (i + 1) + "=" + values[i];    
+                }
+            }
+            urlBase = urlBase  + "&length="+len+ "&setLatLon=Set";
+
+           console.log(urlBase);
+            // //$scope.dataString = []; 
+            //   var dataString = values; 
+            //   //console.log(values);
+            //   //console.log(dataString);
+            //    var jsonString = JSON.stringify(dataString);
+            //    console.log(jsonString);
+             Request.send(urlBase,'POST').then(function(response) {
 
                $scope.data = response;
+               
 
         }, function(response) {
                 $log.error(response);

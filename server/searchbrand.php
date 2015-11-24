@@ -1,8 +1,16 @@
 <?php
 
 
+// $len=$_REQUEST['length'];
+// echo $len;
 
-//require 'connect.php';
+// $brand=array_values($_REQUEST);
+// for($i=0;$i<$len;$i++)
+// {
+// echo $brand[$i];
+//   //echo "hiii";
+// }
+
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = '';
@@ -20,40 +28,39 @@ if (!$conn) {
    
   $offset = 5 * $page_position;
   $item_per_page = 5;
-
-
-      $key = $_POST['Brand'];
-      $pre = $_POST['Brand1'];
-      
- 
-      
-     // $key='Micromax';
-  
-
-$query = "SELECT * FROM product_mobile WHERE  brand  LIKE '%".$key."%'  ORDER BY id  LIMIT $item_per_page OFFSET $offset";
+    $arr1=array();
+    $arr= array();  
+    $j=0;             
+$len=$_REQUEST['length'];
+//echo $len;
+// $length=$REQUEST['length'];
+// echo $length;
+$brand=array_values($_REQUEST);
+for($i=0;$i<$len;$i++)
+{
+  $br=$brand[$i];
+$query = "SELECT * FROM product_mobile WHERE brand='$br'  ORDER BY id  LIMIT $item_per_page OFFSET $offset";
+// $query = "SELECT * FROM product_mobile WHERE  brand  LIKE '%".$brand[$i]."%'  ORDER BY id  LIMIT $item_per_page OFFSET $offset";
  $retval = mysql_query( $query, $conn );
   $result1 = mysql_query("SELECT * FROM product_mobile",$conn );
 $num_rows = mysql_num_rows($result1);
 $num_rows = ceil($num_rows/5);
-$arr= array();
+
+
 
     while($row = mysql_fetch_assoc($retval))
     {
-      $arr[]=$row;
+      $arr[$j]=$row;
     }
-    
-    $output = array( 
-            "data1" =>$arr,
-            
-            
-            "num_rows" => $num_rows
-           
-            
-            );
-
-  echo json_encode($output);
-
-
+    $j++;
    
 
+}
+$output = array( 
+"data1" =>$arr,
+"num_rows" => $num_rows
+);
+   
+echo json_encode($output);
+   
 ?>
