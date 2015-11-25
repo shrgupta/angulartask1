@@ -39,7 +39,7 @@ $brand=array_values($_REQUEST);
 for($i=0;$i<$len;$i++)
 {
   $br=$brand[$i];
-$query = "SELECT * FROM product_mobile WHERE brand='$br'  ORDER BY id  LIMIT $item_per_page OFFSET $offset";
+$query = "SELECT * FROM product_mobile WHERE brand='$br' ";
 // $query = "SELECT * FROM product_mobile WHERE  brand  LIKE '%".$brand[$i]."%'  ORDER BY id  LIMIT $item_per_page OFFSET $offset";
  $retval = mysql_query( $query, $conn );
   $result1 = mysql_query("SELECT * FROM product_mobile",$conn );

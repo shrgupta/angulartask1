@@ -49,7 +49,7 @@ angular.module('app')
             url: "/login",
             views: {
                 "": {
-                      
+                     controller: "LoginCtrl", 
                     templateUrl: "app/login/login.html"
                 }
 
@@ -62,7 +62,7 @@ angular.module('app')
             url: "/registration",
             views: {
                 "": {
-                    
+                    controller: "RegistrationCtrl", 
                     templateUrl: "app/registration/registration.html"
                 }
 
@@ -74,7 +74,7 @@ angular.module('app')
             url: "/dashboard",
             views: {
                 "": {
-                       
+                      controller:"DashBoardCtrl",  
                     templateUrl: "app/dashboard/dashboard.html"
                 }
 

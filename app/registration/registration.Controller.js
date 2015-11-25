@@ -2,7 +2,7 @@
     'use strict';
     angular.module('app').controller('RegistrationCtrl', RegistrationCtrl);
 
-    function RegistrationCtrl($scope,Request,$localStorage,$state) {
+    function RegistrationCtrl($scope,Request,$localStorage,$state,$log) {
 
 
         $scope.submit = function() {
@@ -15,7 +15,7 @@
                     $scope.email = "";
                     $scope.pass = "";
                     $scope.cpass = "";
-                    state.go('#/home');
+                    $state.go("home");
 
         }, function(response) {
                 $log.error(response);
