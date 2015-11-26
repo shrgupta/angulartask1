@@ -1,16 +1,5 @@
 <?php
 
-
-// $len=$_REQUEST['length'];
-// echo $len;
-
-// $brand=array_values($_REQUEST);
-// for($i=0;$i<$len;$i++)
-// {
-// echo $brand[$i];
-//   //echo "hiii";
-// }
-
 $dbhost = 'localhost';
 $dbuser = 'root';
 $dbpass = '';
@@ -32,9 +21,7 @@ if (!$conn) {
     $arr= array();  
     $j=0;             
 $len=$_REQUEST['length'];
-//echo $len;
-// $length=$REQUEST['length'];
-// echo $length;
+
 $brand=array_values($_REQUEST);
 for($i=0;$i<$len;$i++)
 {
@@ -44,7 +31,9 @@ $query = "SELECT * FROM product_mobile WHERE brand='$br' ";
  $retval = mysql_query( $query, $conn );
   $result1 = mysql_query("SELECT * FROM product_mobile",$conn );
 $num_rows = mysql_num_rows($result1);
-$num_rows = ceil($num_rows/5);
+// $num_rows = ceil($num_rows/5);
+$num_rows = 0;
+
 
 
 

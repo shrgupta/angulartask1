@@ -6,7 +6,7 @@
         return {
         	desending: function() {
                 var def = $q.defer();
-               Request.send('sortdsc.php', 'POST').then(function(response) {
+               Request.send('sortdsc.php','', 'POST').then(function(response) {
                	//console.log('reach');
                	def.resolve(response);
 

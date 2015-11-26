@@ -80,7 +80,21 @@ angular.module('app')
 
             }
 
+        })
+
+        .state("search", {
+            parent: "root",
+            url: "/search",
+            views: {
+                "": {
+                      controller:"SearchCtrl",  
+                    templateUrl: "app/search/homeNew.html"
+                }
+
+            }
+
         });
+
 
 
 

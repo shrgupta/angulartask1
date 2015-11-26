@@ -4,8 +4,8 @@
     angular.module('app').controller('HomeCtrl', HomeCtrl);
     function HomeCtrl($scope, $http,Request,ascRequest,dscRequest,$log) {
 
-         $scope.display = function() {
-             Request.send('row.php', 'POST').then(function(response) {
+         // $scope.display = function() {
+             Request.send('row.php','', 'POST').then(function(response) {
             $scope.data = response;
             var pag = parseInt($scope.data.num_rows);
                     // alert(pag);
@@ -23,7 +23,7 @@
                 $log.error(response);
             });
   
-         }
+         //}
 
 
          $scope.sortdsc = function() {
@@ -79,6 +79,7 @@
                 
         
 
+
                 var values=[];
          $scope.searchbrand = function(brand) {
             
@@ -98,13 +99,8 @@
             urlBase = urlBase  + "&length="+len+ "&setLatLon=Set";
 
            console.log(urlBase);
-            // //$scope.dataString = []; 
-            //   var dataString = values; 
-            //   //console.log(values);
-            //   //console.log(dataString);
-            //    var jsonString = JSON.stringify(dataString);
-            //    console.log(jsonString);
-             Request.send(urlBase,'POST').then(function(response) {
+           
+             Request.send(urlBase,'','POST').then(function(response) {
 
                $scope.data = response;
                

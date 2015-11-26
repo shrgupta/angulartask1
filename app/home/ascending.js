@@ -6,7 +6,7 @@
         return {
         	ascending: function() {
                 var def = $q.defer();
-               Request.send('sortasc.php', 'POST').then(function(response) {
+               Request.send('sortasc.php','', 'POST').then(function(response) {
                	console.log('reach');
                	def.resolve(response);
 
