@@ -46,7 +46,7 @@
 
  <div class="checkbox" ng-controller="BrandCtrl" >
     <label ng-repeat="category in data track by $index">
-      <input type="checkbox"  ng-model="bajg"  ng-change="searchbrand(category.brand)"> {{category.brand}} </br></br></label>
+    <input type="checkbox" ng-model="filters[category.brand]"  ng-change=searchbrand(filters[category.brand],category.brand)    > {{category.brand}} </br></br></label>
   </div>
  
 
@@ -104,7 +104,7 @@
  -->
                 <div class="row">
                    
-                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="user in data.data1">
+                    <div class="col-sm-4 col-lg-4 col-md-4" ng-repeat="user in data.data1" >
                         <div class="thumbnail">
                             <img ng-src="{{user.image}}" alt="comming soon" style="width:60px;min-height:150px"/>
                              

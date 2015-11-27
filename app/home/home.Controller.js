@@ -79,11 +79,38 @@
                 
         
 
+           // $scope.showHideDiv = function (chkStatus) {
+           //  alert(chkStatus);
+           //   if ($scope.chkStatus) {
+           //   $scope.showhideprop = true;
+           //                   }
+           //    else {
+           //   $scope.showhideprop = false;
+           //       }
+           //   }
+
+
+
+
+
+
+
 
                 var values=[];
-         $scope.searchbrand = function(brand) {
+                $scope.filters = [];  
+         $scope.searchbrand = function(status,brand) {
+            console.log(status);
+            if(status==true){
+             values.push(brand);   
+            }
+            else{
+                console.log(values.indexOf(brand));
+               if(values.indexOf(brand) != -1) {
+                //pull out the brand from array
+                values.splice(brand,1);
+               }
+            }
             
-            values.push(brand);
             var len=values.length;
             var urlBase = "searchbrand.php?brand0="
             for (var i = 0; i < len; i++) {
@@ -102,14 +129,16 @@
            
              Request.send(urlBase,'','POST').then(function(response) {
 
-               $scope.data = response;
                
+               $scope.data = response;
+                console.log($scope.filters);
 
         }, function(response) {
                 $log.error(response);
             });
-  
-     
+              
+       
+
                 };
                 
 
@@ -118,6 +147,7 @@
 
 
         $scope.orderby = function(index) {
+            
             Request.send('row.php', {page_position: index }, 'POST').then(function(response) {
                 $scope.data = response;
 
