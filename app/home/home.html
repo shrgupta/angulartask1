@@ -44,10 +44,16 @@
  
 <label>Brand</label>
 
- <div class="checkbox" ng-controller="BrandCtrl" >
+<div class="checkbox" ng-controller="BrandCtrl" >
+    <label ng-repeat="category in data track by $index">
+    <input type="checkbox" ng-model="filters[category.brand]"  ng-change=searchbrand(filters[category.brand],category.brand)  > {{category.brand}} </br></br></label>
+  </div>
+
+
+ <!-- <div class="checkbox" ng-controller="BrandCtrl" >
     <label ng-repeat="category in data track by $index">
     <input type="checkbox" ng-model="filters[category.brand]"  ng-change=searchbrand(filters[category.brand],category.brand)    > {{category.brand}} </br></br></label>
-  </div>
+  </div> -->
  
 
  <label>Sort By</label>

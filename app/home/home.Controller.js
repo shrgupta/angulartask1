@@ -147,7 +147,6 @@
 
 
         $scope.orderby = function(index) {
-            
             Request.send('row.php', {page_position: index }, 'POST').then(function(response) {
                 $scope.data = response;
 
