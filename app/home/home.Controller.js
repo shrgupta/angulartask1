@@ -104,10 +104,11 @@
              values.push(brand);   
             }
             else{
+                
                 console.log(values.indexOf(brand));
                if(values.indexOf(brand) != -1) {
                 //pull out the brand from array
-                values.splice(brand,1);
+                values.splice(values.indexOf(brand), 1);
                }
             }
             
