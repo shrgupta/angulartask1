@@ -11,8 +11,9 @@
                 $http({
                     url: baseApi+api,
                     method: method,
+                     transformRequest: false,
                     headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-                    data: $.param(data),
+                    params: {data : data }
                 }).success(function(data) {
 
 
