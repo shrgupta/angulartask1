@@ -13,24 +13,32 @@ $filters= array();
 // if($data)
 $condition = '';
 foreach ($data as $key => $value) {
-  if(!$condition) {
-   $condition .= 'WHERE ';
+  if($condition) {
+    $condition .= 'AND';
+     // print_r($condition); 
   }
-  else {
-    $condition .= ' AND';
-  }
+   //print_r($condition); exit;
   if($key == 'range') {
-    $min = null;
-    $max = 0;
+    // $min = null;
+    // $max = 0;
+    $rangeCondition = '';
+    // print_r($value); exit;
         foreach($value as $key3 => $rangeData) {
-              if( $min == null ||  $min > $key3) 
-                $min = $key3;
-              if($rangeData > $max)
-              $max = $rangeData;
+
+          if($rangeData) {
+          if($rangeCondition) {
+            $rangeCondition .= ' OR';
+          }
+           $rangeCondition .= ' (price BETWEEN '.$key3.' AND '.$rangeData.')';
+           //print_r($rangeData); 
         }
+      }  
+      if($rangeCondition) {
+       $condition .= ' ('.$rangeCondition .')';
+     }
+ 
+    // print_r($rangeCondition); exit;
 
-
-       $condition .= ' (price BETWEEN '.$min.' AND '.$max.')';
   }
   if($key == 'brand') {
      $brandCondition = '';
@@ -40,7 +48,9 @@ foreach ($data as $key => $value) {
         $brandCondition .= ' OR';
       }
 
-      $brandCondition .= ' brand= "'.$key1.'"';
+      $brandCondition .= ' brand = "'.$key1.'"';
+     // print_r($rangeCondition); exit;
+
       } 
     }
       $condition .=  ' ('.$brandCondition.') ';
@@ -63,6 +73,9 @@ $conn = mysql_connect($dbhost, $dbuser, $dbpass);
 mysql_select_db('shraddha');
 if (!$conn) {
     die('Could not connect: ' . mysql_error());
+}
+if($condition) {
+  $condition = ' WHERE '.$condition;
 }
 $query = "SELECT * FROM product_mobile  ".$condition .' '. $orderQuery .' LIMIT '.($page)*$pageLimit .', '.($page+1)*$pageLimit;
 
