@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app').controller('HomeCtrl', HomeCtrl);
-    function HomeCtrl($scope, $http,Request,ascRequest,dscRequest,$log) {
+    function HomeCtrl($scope, $http,Request) {
         var rootFilter = {};
         var page = 0;
         var order = false;
@@ -47,15 +47,6 @@
             getData();
         };
         
-       //  $scope.orderby = function(index) {
-       //      Request.send('row.php', {page_position: index }, 'POST').then(function(response) {
-       //          $scope.data = response;
-
-       //  }, function(response) {
-       //          $log.error(response);
-       //      });
-  
-     
-       // };
+       
     };
 })();

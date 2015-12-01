@@ -1,62 +1,89 @@
 <?php
 
+$dbhost = 'localhost';
+$dbuser = 'root';
+$dbpass = '';
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+mysql_select_db('shraddha');
+if (!$conn) {
+    die('Could not connect: ' . mysql_error());
+}
+
+
+
 $requestData = json_decode($_REQUEST['data'], true);
 $page = $requestData['page'];
 $order = $requestData['order'];
 $data =$requestData['filters'] ;
 
 
-// echo '<pre>'; print_r($requestData); 
-// print_r($data); exit();
+
 
 $filters= array();
-// if($data)
+
 $condition = '';
 foreach ($data as $key => $value) {
+  
+   //if($){
   if($condition) {
     $condition .= 'AND';
-     // print_r($condition); 
+     // print_r($value); 
   }
+//}
+
+
    //print_r($condition); exit;
   if($key == 'range') {
-    // $min = null;
-    // $max = 0;
+    
     $rangeCondition = '';
-    // print_r($value); exit;
+    
         foreach($value as $key3 => $rangeData) {
 
           if($rangeData) {
           if($rangeCondition) {
-            $rangeCondition .= ' OR';
+            $rangeCondition .= 'OR';
           }
            $rangeCondition .= ' (price BETWEEN '.$key3.' AND '.$rangeData.')';
-           //print_r($rangeData); 
+          // print_r($value); exit; 
         }
       }  
       if($rangeCondition) {
+         //chop($rangeCondition,"AND");
+       
        $condition .= ' ('.$rangeCondition .')';
+
      }
  
-    // print_r($rangeCondition); exit;
+    // print_r($rangeCondition); 
 
   }
-  if($key == 'brand') {
+  if($key == 'brand')  {
      $brandCondition = '';
      foreach ($value as $key1 => $brand) { 
+
       if($brand) {
       if($brandCondition) {
         $brandCondition .= ' OR';
       }
-
+        
       $brandCondition .= ' brand = "'.$key1.'"';
-     // print_r($rangeCondition); exit;
+      //print_r($brandCondition); 
 
       } 
     }
+        //echo chop($brandCondition,"AND");
+    
+      if($brandCondition) {
+        
+          
+         
       $condition .=  ' ('.$brandCondition.') ';
-   
+      //print_r($condition); 
+   }
   }
 }
+//}
+
 $orderQuery = '';
 if($order) {
   $orderQuery = ' ORDER BY price '.$order;
@@ -66,14 +93,7 @@ if($order) {
 
 $pageLimit = 5;
 
-$dbhost = 'localhost';
-$dbuser = 'root';
-$dbpass = '';
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
-mysql_select_db('shraddha');
-if (!$conn) {
-    die('Could not connect: ' . mysql_error());
-}
+
 if($condition) {
   $condition = ' WHERE '.$condition;
 }
@@ -99,6 +119,6 @@ $arr = array();
 "num_rows" => $num_rows
 );
    
-echo json_encode($output); exit;
+echo json_encode($output); 
    
 ?>
